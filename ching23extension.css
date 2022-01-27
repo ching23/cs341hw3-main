@@ -1,0 +1,114 @@
+/*
+  @author Caitlin Ching
+  CS341-B Dr. Cenek
+  Last modified: 01/24/2022
+  External Source used for hover button: https://www.w3schools.com/howto/howto_css_dropdown.asp 
+  External Source used for scrolling: https://www.w3schools.com/cssref/pr_pos_overflow.asp
+*/
+
+/* change heading color and highlight it */
+h1 {
+  color: #5b5b94;
+  background-color: #e7e3dc;
+  height: 60px;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* change heading color*/
+h3 {
+    color: #3c3c5f;
+}
+
+th {
+  color: #3c3c5f;
+}
+
+button {
+  color: #3c3c5f;
+}
+
+/* change font */
+p {
+    font-family: "Georgia", Times, serif;
+    color: #3c3c5f;
+}
+
+textarea {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+li {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* change background color using a picture */
+body {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEW30uPtZsEQAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=);
+}
+
+/* add boarder around image */
+img {
+    background: #eaeaed;
+    border: 1px solid #5c618b;
+    padding: 6px;
+}
+
+/* Hover Drop Down Box Style */
+.monthDrop {
+  background-color: #ffffff;
+  color: rgb(69, 73, 129);
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+form {
+  background-color: #e7e3dc;
+  width: 450px;
+  height: 230px;
+}
+
+.month {
+  position: relative;
+  display: inline-block;
+}
+
+/* The month's context (ex. jan, feb, etc) */
+.month-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  height: 125px;
+}
+
+.month-content a {
+  color: black;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+/* background color of the months */
+.month-content a:hover {
+  background-color: rgb(156, 196, 228);
+}
+
+.month:hover .month-content {
+  display: block;
+}
+
+/* background color of the button when being hovered */
+.month:hover .monthDrop {
+  background-color: rgb(156, 196, 228);
+}
+
+/* Make the hover button scrollable */
+.month-content {
+  overflow: scroll;
+}

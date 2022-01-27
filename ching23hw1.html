@@ -1,0 +1,144 @@
+<!-- @author Caitlin Ching 
+CS341-B Dr. Cenek 
+Last modified: 01/24/2022 
+
+External Source used for hover button: https://www.w3schools.com/howto/howto_css_dropdown.asp-->
+
+<!DOCTYPE html>
+<html>
+    <!-- Contains all the headers, dropdowns, buttons, and pictures -->
+    <head>
+        <!-- Load in jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/> </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <script type= "text/javascript">
+        $(document).ready(function() {
+            $(".orderButton").click(function(){
+                // variables for radio buttons, textbox, and drop down
+                let toppings = $('input[class="toppings"]:checked').val();
+                let quantity = $("#quantity option:selected").val();
+                let instructions = $("#textOrder").val()
+
+                // if textarea includes the word vegan, display warning message
+                if(instructions.includes("vegan")) {
+                    alert("WARNING: Cheesecakes Contain Dairy");
+                    // return false, so that the page doesn't reload
+                    return false;
+                }
+                else {
+                    $("#cheesecakeForm").remove();
+                    
+                    $("#parNotes").text("Thank you! Your order has been placed.");
+                    $("#orderInfo").text("Quantity: " + quantity + ", toppings: " + toppings + ", notes: " + instructions);
+                }
+            });
+            // make hover button clickable and change text that is selected
+            $(".month-link").click(function(){
+                let month = $(this).text();
+                $(".monthDrop").text(month);
+            });
+        });
+    </script>
+
+    <body>
+        <!-- CSS extension link -->
+        <link rel= "stylesheet" type= "text/css" href= "ching23extension.css"/>
+
+        <!-- Top Header -->
+        <h1> Cheesecake Order Form </h1>
+
+        <!-- cheesecake image -->
+        <img src= https://upload.wikimedia.org/wikipedia/commons/9/9c/Mondays_at_Il_Forno_-_Cheesecake_with_strawberry_sauce.jpg
+        height= 150 width= 150>
+
+        <!-- New text area -->
+        <h3 id= "parNotes"></h3>
+        <h3 id= "orderInfo"></h3>
+        
+        <!-- New section for filling out cheesecake form -->
+        <form id = cheesecakeForm>
+            <table>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Topping</th>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- drop down menu -->
+                    <select id= "quantity">
+                        <option value= "1"> 1 </option>
+                        <option value= "2"> 2 </option>
+                        <option value= "3"> 3 </option>
+                        <option value= "4"> 4 </option>
+                        <option value= "5"> 5 </option>
+                    </select>
+                </td>
+                    <td>
+                        <!-- shifted radio buttons to the right, so that the drop down is to the left on the same leve -->
+                        <!-- radio buttons, break each one, so they are ontop of eachother instead of next -->
+                        <input type= "radio" id= "Plain" name= "selectToppings" value= "Plain" class= "toppings" 
+                            style= "position: relative; left: 20px;" checked>
+                        <label for= "Plain" style= "position: relative; left: 20px;">Plain</label> <br>
+                        
+                        <input type= "radio" id= "Cherry" name= "selectToppings" value= "Cherry" class= "toppings" 
+                            style= "position: relative; left: 20px;">
+                        <label for= "Cherry" style= "position: relative; left: 20px;">Cherry</label> <br>
+
+                        <input type= "radio" id= "Chocolate" name= "selectToppings" value= "Chocolate" class= "toppings" 
+                            style= "position: relative; left: 20px;">
+                        <label for= "Chocolate" style= "position: relative; left: 20px;">Chocolate</label> <br>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- Create a textbox -->
+            <!-- Have to delete space character to see "Enter any special instruction here." -->
+            <p>Notes:</p>
+            <p id= "orderInfo"></p>
+            <textarea placeholder= "Enter any special instructions here." id= "textOrder" rows= "4" cols= "50"> </textarea> 
+
+            <!-- add a break inbetween the textbox and button -->
+            <br>
+            <button class= "orderButton">Order</button>
+        </form>
+            
+        <!-- New table to make header and hover drop down next to eachother -->
+        <table>
+            <tr>
+                <th> 
+                    <!-- Smaller Header -->
+                    <h3>Orders For</h3> 
+                </th>
+                <th>
+                    <!-- Hover Drop Down -->
+                    <div class="month">
+                        <button class="monthDrop">Month</button>
+                        <div class="month-content">
+                            <a class="month-link" href="#">Jan</a>
+                            <a class="month-link" href="#">Feb</a>
+                            <a class="month-link" href="#">Mar</a>
+                            <a class="month-link" href="#">Apr</a>
+                            <a class="month-link" href="#">May</a>
+                            <a class="month-link" href="#">Jun</a>
+                            <a class="month-link" href="#">Jul</a>
+                            <a class="month-link" href="#">Aug</a>
+                            <a class="month-link" href="#">Sep</a>
+                            <a class="month-link" href="#">Oct</a>
+                            <a class="month-link" href="#">Nov</a>
+                            <a class="month-link" href="#">Dec</a>
+                        </div>
+                    </div>
+                </th>
+            </tr>     
+        </table>
+
+        <!-- Order bullet points -->
+        <ul>
+            <li>11 cherry</li>
+            <li>17 chocolate</li>
+            <li>31 plain</li>
+        </ul>
+    </body>
+</html>
