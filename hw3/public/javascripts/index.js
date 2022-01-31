@@ -1,3 +1,7 @@
+// @author Caitlin Ching 
+// CS341-B Dr. Cenek 
+// Last modified: 01/30/2022 
+
 $(document).ready(function() {
     $(".orderButton").click(function(){
         // variables for radio buttons, textbox, and drop down

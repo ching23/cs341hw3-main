@@ -1,3 +1,7 @@
+// @author Caitlin Ching 
+// CS341-B Dr. Cenek 
+// Last modified: 01/30/2022 
+
 var fs = require('fs');
 test('test selectEvent', () => {
     //Read the index.html file into a string
