@@ -28,11 +28,10 @@ $(document).ready(function() {
         $(".monthDrop").text(month);
 
         $.post('http://localhost:3000/orders', month, function(data) {
-            // update page to match returned object
+            // update orders page to match returned object 
             $('#cherryOrders').text(data[0].quantity + " " + data[0].topping);
             $('#plainOrders').text(data[1].quantity + " " + data[1].topping);
             $('#chocolateOrders').text(data[2].quantity + " " + data[2].topping);
         });
-
     });
 });
